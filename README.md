@@ -41,11 +41,8 @@ En PowerShell el tag va entre comillas, porque `@` se interpreta distinto. El fi
 - `reports/resumen.md`: cuántos corrieron, cuántos pasaron, cuántos fallaron y el texto del error
 - `reports/allure-report/index.html`: el mismo resultado en un HTML solo, para abrirlo en el navegador. Cada escenario trae captura y el log `DEBUG=pw:api`. En los cuatro que fallan hay además una foto tomada cuando el error ya se veía en la página
 
-Esos archivos se generan al correr. No quedan en git.
-
 ## Documentos
 
-- `docs/documentacion-funcional.md`: qué hace la página, con las suposiciones
 - `docs/historia-de-usuario.md`: la historia y los criterios
 - `docs/plan-y-casos-de-prueba.md`: los casos
 - `docs/reporte-de-fallas.md`: el defecto y notas
