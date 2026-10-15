@@ -1,0 +1,39 @@
+# Dependencias
+node_modules/
+
+# Reportes generados por npm test
+reports/*
+!reports/.gitkeep
+
+# Salidas de Playwright y Cucumber
+playwright-report/
+test-results/
+blob-report/
+.cache/
+
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Sistema
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editores
+.idea/
+*.swp
+
+# Material de arranque. Queda en la máquina y no va al repositorio.
+docs/instrucciones-proyecto.md
+docs/plan-de-accion.md
+docs/prueba-ingeniero-calidad.md
+docs/prueba-ingeniero-calidad-qa-farmatodo.pdf
+docs/documentacion-funcional.md

@@ -1,0 +1,23 @@
+{
+  "url": "https://wordcounter.net/",
+  "textos": {
+    "una-palabra": "hello",
+    "espacios-repetidos": "hello   world",
+    "texto-de-referencia": {
+      "archivo": "docs/texto-a-copiar.md"
+    },
+    "solo-espacios": "   \n  ",
+    "solo-puntuacion": "...",
+    "dos-palabras": "hello world",
+    "mayusculas": "Hello hello HELLO",
+    "stop-words": "the the the cat cat dog",
+    "salto-de-linea": "hello\nworld",
+    "empate": "alpha beta alpha gamma beta",
+    "numeros": "123 456",
+    "guion": "word-count",
+    "direccion-web": "https://example.com/foo",
+    "correo": "user@mail.com",
+    "doble-guion": "word--word",
+    "solo-guiones": "---"
+  }
+}
