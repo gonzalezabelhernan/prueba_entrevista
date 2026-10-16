@@ -47,7 +47,32 @@ function quoteArg(arg) {
   return `"${arg.replace(/"/g, '\\"')}"`;
 }
 
-const args = process.argv.slice(2);
+function takeRunnerOptions(rawArgs) {
+  const cucumberArgs = [];
+  for (let i = 0; i < rawArgs.length; i += 1) {
+    const arg = rawArgs[i];
+    if (arg === '--headed') {
+      process.env.HEADED = 'true';
+      continue;
+    }
+    if (arg === '--slowmo' || arg.startsWith('--slowmo=')) {
+      const value = arg.includes('=') ? arg.split('=')[1] : rawArgs[++i];
+      process.env.SLOWMO = String(value ?? '0');
+      continue;
+    }
+    cucumberArgs.push(arg);
+  }
+  return cucumberArgs;
+}
+
+const args = takeRunnerOptions(process.argv.slice(2));
+const headed = process.env.HEADED === 'true';
+const slowMo = process.env.SLOWMO ?? '0';
+console.log(
+  headed
+    ? `Iniciando suite en modo headed (slowMo=${slowMo} ms). Puede tardar varios minutos...`
+    : 'Iniciando suite en headless. Suele tardar alrededor de 1 minuto...',
+);
 const result = spawnSync('npx', ['cucumber-js', ...args.map(quoteArg)], {
   stdio: 'inherit',
   shell: true,

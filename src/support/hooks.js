@@ -9,7 +9,14 @@ setDefaultTimeout(60_000);
 installPwApiLogCapture();
 
 BeforeAll(async () => {
-  browser = await chromium.launch({ headless: true });
+  const headed = process.env.HEADED === 'true';
+  const slowMo = Number(process.env.SLOWMO ?? 0);
+  const delay = Number.isFinite(slowMo) && slowMo > 0 ? slowMo : 0;
+  console.log(`[browser] headed=${headed} slowMo=${delay} ms`);
+  browser = await chromium.launch({
+    headless: !headed,
+    slowMo: delay,
+  });
 });
 
 Before(async function () {

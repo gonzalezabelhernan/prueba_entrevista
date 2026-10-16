@@ -13,10 +13,6 @@ function installPwApiLogCapture() {
     const text = Buffer.isBuffer(chunk) ? chunk.toString('utf8') : String(chunk);
     if (text.includes('pw:api')) {
       lines.push(text);
-      if (typeof callback === 'function') {
-        callback();
-      }
-      return true;
     }
     return original(chunk, encoding, callback);
   };

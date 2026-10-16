@@ -27,7 +27,31 @@ Para correr solo esos 13:
 npm run test:regression
 ```
 
-Para un filtro más chico:
+### Modo headed (navegador visible)
+
+Los 17 escenarios en el navegador, con la pausa definida en `package.json` (`test:headed`):
+
+```bash
+npm run test:headed
+```
+
+Misma corrida completa, eligiendo vos el `slowMo` (más alto = más lento):
+
+```bash
+node scripts/run-tests.mjs --headed --slowmo=500
+node scripts/run-tests.mjs --headed --slowmo=1000
+node scripts/run-tests.mjs --headed --slowmo=2000
+```
+
+Un solo escenario en headed con `slowMo`. Ejemplo con uno de los que fallan (`DEF-WC-003`):
+
+```bash
+node scripts/run-tests.mjs --headed --slowmo=2000 --tags "@TC_WC_301"
+```
+
+Otros tags de defecto: `@TC_WC_302`, `@TC_WC_303`, `@TC_WC_306`. Los cuatro juntos: `@bug`.
+
+### Filtros sin headed
 
 ```bash
 npm run test:smoke

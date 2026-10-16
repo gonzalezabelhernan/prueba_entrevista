@@ -4,6 +4,7 @@
   "description": "Suite Playwright + Cucumber para validar los contadores de wordcounter.net",
   "scripts": {
     "test": "node scripts/run-tests.mjs",
+    "test:headed": "node scripts/run-tests.mjs --headed --slowmo=2000",
     "test:smoke": "node scripts/run-tests.mjs --tags \"@Smoke\"",
     "test:regression": "node scripts/run-tests.mjs --tags \"@Regression and not @bug\"",
     "report": "allure generate reports/allure-results --output reports/allure-report && node scripts/generate-summary.mjs"
